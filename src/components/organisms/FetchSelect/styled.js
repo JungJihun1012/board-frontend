@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 800px;
+  width: 600px;
   margin: 50px auto;
   padding: 20px;
   border-radius: 12px;
@@ -24,16 +24,29 @@ export const Table = styled.div`
 
 export const TableHeader = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.1fr 3.1fr 2fr;
   background-color: #f8f8f8;
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 8px;
 `;
 
+export const StyledAtag = styled.a`
+  font-size: 14px;
+  cursor: pointer;
+`;
+
+export const Content = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
 export const TableRow = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 3fr 8fr 5fr 1fr;
+  /* display: flex;
+  justify-content: space-between; */
   padding: 10px 20px;
   background-color: #fafafa;
   border-radius: 6px;
@@ -43,7 +56,14 @@ export const TableRow = styled.div`
     background-color: #f1f1f1;
   }
 `;
-
+export const Times = styled.div`
+  cursor: pointer;
+  font-size: 17px;
+  width: 0;
+  &:hover {
+    color: red;
+  }
+`;
 export const TableCell = styled.div`
   overflow-wrap: anywhere;
 `;

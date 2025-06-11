@@ -7,24 +7,37 @@ import {
   TableHeader,
   TableRow,
   TableCell,
+  Times,
+  Content,
+  StyledAtag,
 } from "./styled";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { del, get, safeAsync } from "../../../utils";
+import Button from "../../atoms/Button";
 
-const FetchSelect = ({ title, refreshTrigger }) => {
+const FetchSelect = ({ title }) => {
   const [select, setSelect] = useState([]);
+  const navigate = useNavigate();
 
-  const handleList = async () => {
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_LOCALHOST}/user`);
-      setSelect(response.data);
-    } catch (error) {
-      console.error("error 메세지:", error);
-    }
+  const handleNavigate = (index) => {
+    navigate(`/update/${index}`);
+  }
+
+  const handleList = () => safeAsync(() => get("/board/select"), setSelect);
+
+  const handleDelete = (index) => {
+    if(!confirm("삭제 하실건가요?")) return;
+    safeAsync(
+      async () => {
+        await del(`/board/delete/${index}`);
+        return handleList();
+      }
+    ); 
   };
 
   useEffect(() => {
     handleList();
-  }, [refreshTrigger]);
+  }, []);
 
   return (
     <Container>
@@ -33,16 +46,22 @@ const FetchSelect = ({ title, refreshTrigger }) => {
         <TableHeader>
           <TableCell>번호</TableCell>
           <TableCell>제목</TableCell>
+          <TableCell>작성일</TableCell>
         </TableHeader>
         {select.map((item) => (
           <TableRow key={item.index}>
             <TableCell>
-                <Link to="/update">{item.index}</Link>
+              <StyledAtag onClick={() => handleNavigate(item.index)}>{item.index}</StyledAtag>
             </TableCell>
             <TableCell>{item.title}</TableCell>
+            <TableCell>{item.createYmd}</TableCell>
+            <Times onClick={() => handleDelete(item.index)}>&times;</Times>
           </TableRow>
         ))}
       </Table>
+      <Content>
+        <Button to="/" backgroundColor="lightgray">돌아가기</Button>
+      </Content>
     </Container>
   );
 };

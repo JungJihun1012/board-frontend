@@ -1,28 +1,28 @@
 import axios from "axios";
 import { useState } from "react";
-import { FormContainer, FormTitle, Form, Input, TextArea, Button } from "./styled";
+import { FormContainer, FormTitle, Form, Input, TextArea, Content, InsertButton } from "./styled";
+import { post, safeAsync } from "../../../utils";
+import { useNavigate } from "react-router-dom";
+import Button from "../../atoms/Button";
 
-const FetchInsert = ({ onInsertSuccess }) => {
+const FetchInsert = () => {
   const [formData, setFormData] = useState({ title: "", content: "" });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_LOCALHOST}/save`, formData);
-      setFormData({ title: "", content: "" });
-      if (onInsertSuccess) {
-          onInsertSuccess();
-          alert("등록되었습니다.");
-          location.href='/';
-      };
-    } catch (err) {
-      console.error("등록 실패:", err);
-    }
+    safeAsync(
+      async () => await post(`/board/insert`, formData),
+      () => {
+        setFormData({title: "", content: ""});
+        alert("등록되었습니다.");
+        navigate("/read");
+      }
+    );
   };
 
   return (
@@ -43,8 +43,11 @@ const FetchInsert = ({ onInsertSuccess }) => {
           onChange={handleChange}
           required
         />
-        <Button type="submit">등록하기</Button>
+        <InsertButton type="submit">등록하기</InsertButton>
       </Form>
+      <Content>
+        <Button backgroundColor="cornflowerblue" color="#fff" to="/">돌아가기</Button>
+      </Content>
     </FormContainer>
   );
 };

@@ -19,7 +19,7 @@ const Router = createBrowserRouter([
         element: <ReadPage />
     },
     {
-        path: '/update',
+        path: '/update/:index',
         element: <UpdatePage />
     }
 ])

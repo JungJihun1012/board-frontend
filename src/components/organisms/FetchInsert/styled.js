@@ -9,7 +9,7 @@ export const FormContainer = styled.div`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 `;
 
-export const FormTitle = styled.h2`
+export const FormTitle = styled.h1`
   text-align: center;
   margin-bottom: 24px;
   font-size: 24px;
@@ -39,14 +39,14 @@ export const TextArea = styled.textarea`
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  resize: vertical;
+  resize: none;
   &:focus {
     border-color: #0077ff;
     outline: none;
   }
 `;
 
-export const Button = styled.button`
+export const InsertButton = styled.button`
   background-color: #0077ff;
   color: white;
   padding: 12px;
@@ -59,4 +59,9 @@ export const Button = styled.button`
   &:hover {
     background-color: #005fcc;
   }
+`;
+export const Content = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 `;
