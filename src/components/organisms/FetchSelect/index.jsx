@@ -60,6 +60,7 @@ const FetchSelect = ({ title }) => {
       </Table>
       <Content>
         <Button to="/" backgroundColor="lightgray">돌아가기</Button>
+        <Button to="/insert" backgroundColor="lightgray">추가하기</Button>
       </Content>
     </Container>
   );

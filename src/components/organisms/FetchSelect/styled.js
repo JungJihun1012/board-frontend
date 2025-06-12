@@ -39,7 +39,7 @@ export const StyledAtag = styled.a`
 export const Content = styled.div`
   margin-top: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 `;
 
 export const TableRow = styled.div`

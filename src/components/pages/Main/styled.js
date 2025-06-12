@@ -1,6 +1,10 @@
-import styled from "styled-components";
-
+import styled, { keyframes } from "styled-components";
+const fadeInOut = keyframes`
+    from {opacity: 0;};
+    to {opacity: 1;};
+`;
 export const Container = styled.div`
+    animation: ${fadeInOut} .8s ease-in;
     display: grid;
     place-content: center;
     height: 90vh;
