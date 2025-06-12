@@ -16,7 +16,7 @@ const FetchInsert = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     safeAsync(
-      async () => await post(`/board/insert`, formData),
+      () => post(`/board/insert`, formData),
       () => {
         setFormData({ title: "", content: "" });
         alert("등록되었습니다.");

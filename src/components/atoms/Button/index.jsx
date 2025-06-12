@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { LinkButton } from "./styled";
 
 const Button = (
     {
@@ -24,9 +23,5 @@ const Button = (
     )
 }
 
-const LinkButton = styled(Link) `
-    padding: 7px 12px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-`;
+
 export default Button;

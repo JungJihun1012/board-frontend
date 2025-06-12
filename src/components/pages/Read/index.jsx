@@ -5,7 +5,7 @@ const ReadPage = () => {
     return(
         <>
             <Container>
-                <FetchSelect title={"읽기 페이지"} />
+                <FetchSelect title={"뭔 게시판"} />
             </Container>
         </>
     )

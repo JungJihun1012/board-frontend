@@ -3,6 +3,7 @@ import InsertPage from "../components/pages/Insert";
 import MainPage from "../components/pages/Main";
 import ReadPage from "../components/pages/Read";
 import UpdatePage from "../components/pages/Update";
+import SelectPage from "../components/pages/Select";
 
 
 const Router = createBrowserRouter([
@@ -15,8 +16,12 @@ const Router = createBrowserRouter([
         element: <InsertPage/>
     },
     {
-        path: '/read',
+        path: '/patchSelect',
         element: <ReadPage />
+    },
+    {
+        path: '/select',
+        element: <SelectPage/>
     },
     {
         path: '/update/:index',

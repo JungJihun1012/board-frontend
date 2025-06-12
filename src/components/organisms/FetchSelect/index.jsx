@@ -15,20 +15,20 @@ import { del, get, safeAsync } from "../../../utils";
 import Button from "../../atoms/Button";
 
 const FetchSelect = ({ title }) => {
-  const [select, setSelect] = useState([]);
+  const [patchSelect, setPatchSelect] = useState([]);
   const navigate = useNavigate();
 
   const handleNavigate = (index) => {
-    navigate(`/update/${index}`);
+    navigate(`/select/${index}`);
   }
 
-  const handleList = () => safeAsync(() => get("/board/select"), setSelect);
+  const handleList = () => safeAsync(() => get("/board/patchSelect"), setPatchSelect);
 
   const handleDelete = (index) => {
     if(!confirm("삭제 하실건가요?")) return;
     safeAsync(
-      async () => {
-        await del(`/board/delete/${index}`);
+      () => {
+        del(`/board/delete/${index}`);
         return handleList();
       }
     ); 
@@ -47,7 +47,7 @@ const FetchSelect = ({ title }) => {
           <TableCell>제목</TableCell>
           <TableCell>작성일</TableCell>
         </TableHeader>
-        {select.map((item) => (
+        {patchSelect.map((item) => (
           <TableRow key={item.index}>
             <TableCell>
               <StyledAtag onClick={() => handleNavigate(item.index)}>{item.index}</StyledAtag>
