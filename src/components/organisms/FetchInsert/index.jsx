@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { FormContainer, FormTitle, Form, Input, TextArea, Content, InsertButton } from "./styled";
 import { post, safeAsync } from "../../../utils";
@@ -8,6 +7,7 @@ import Button from "../../atoms/Button";
 const FetchInsert = () => {
   const [formData, setFormData] = useState({ title: "", content: "" });
   const navigate = useNavigate();
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -18,7 +18,7 @@ const FetchInsert = () => {
     safeAsync(
       async () => await post(`/board/insert`, formData),
       () => {
-        setFormData({title: "", content: ""});
+        setFormData({ title: "", content: "" });
         alert("등록되었습니다.");
         navigate("/read");
       }

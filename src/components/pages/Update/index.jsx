@@ -1,8 +1,5 @@
-import styled from "styled-components";
 import FetchUpdate from "../../organisms/FetchUpdate";
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { get, safeAsync } from "../../../utils";
+import { Container } from "./styled";
 
 const UpdatePage = () => {
   return (
@@ -14,6 +11,5 @@ const UpdatePage = () => {
   );
 };
 
-export const Container = styled.div
-``;
+
 export default UpdatePage;

@@ -1,12 +1,12 @@
-import { useState } from "react";
 import FetchInsert from "../../organisms/FetchInsert";
+import { Container } from "./styled";
 
 const InsertPage = () => {
     return (
         <>
-            <div>
+            <Container>
                 <FetchInsert/>
-            </div>
+            </Container>
         </>
     )
 }
