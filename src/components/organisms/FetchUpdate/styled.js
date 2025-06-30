@@ -22,13 +22,13 @@ export const Input = styled.input`
   padding: 12px 16px;
   margin-bottom: 20px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #f1f1f1;
   border-radius: 8px;
   transition: border-color 0.3s;
 
   &:focus {
     outline: none;
-    border-color: #5b76f7;
+    border-color: #ccc;
   }
 `;
 
@@ -37,7 +37,7 @@ export const TextArea = styled.textarea`
   min-height: 120px;
   padding: 12px 16px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #f1f1f1;
   border-radius: 8px;
   margin-bottom: 20px;
   resize: none;
@@ -45,7 +45,7 @@ export const TextArea = styled.textarea`
 
   &:focus {
     outline: none;
-    border-color: #5b76f7;
+    border-color: #ccc;
   }
 `;
 
@@ -53,8 +53,8 @@ export const UpdateButton = styled.button`
   width: 100%;
   padding: 14px;
   text-align: center;
-  background-color: #5b76f7;
-  color: white;
+  background-color:rgb(221, 221, 221);
+  color: #000;
   border: none;
   border-radius: 10px;
   font-size: 16px;
@@ -63,7 +63,7 @@ export const UpdateButton = styled.button`
   transition: background 0.3s ease;
 
   &:hover {
-    background-color: #4a65d4;
+    background-color: #f1f1f1;
   }
 `;
 

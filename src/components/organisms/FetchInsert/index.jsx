@@ -46,7 +46,7 @@ const FetchInsert = () => {
         <InsertButton type="submit">등록하기</InsertButton>
       </Form>
       <Content>
-        <Button backgroundColor="cornflowerblue" color="#fff" to="/">돌아가기</Button>
+        <Button backgroundColor="#ccc" color="#000" to="/">돌아가기</Button>
       </Content>
     </FormContainer>
   );

@@ -24,11 +24,11 @@ export const Form = styled.form`
 
 export const Input = styled.input`
   padding: 12px 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #f1f1f1;
   border-radius: 8px;
   font-size: 16px;
   &:focus {
-    border-color: #0077ff;
+    border-color: #ccc;
     outline: none;
   }
 `;
@@ -36,19 +36,19 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   min-height: 150px;
   padding: 12px 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #f1f1f1;
   border-radius: 8px;
   font-size: 16px;
   resize: none;
   &:focus {
-    border-color: #0077ff;
+    border-color: #ccc;
     outline: none;
   }
 `;
 
 export const InsertButton = styled.button`
-  background-color: #0077ff;
-  color: white;
+  background-color:rgb(221, 221, 221);
+  color: #000;
   padding: 12px;
   font-size: 16px;
   border: none;
@@ -57,7 +57,7 @@ export const InsertButton = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #005fcc;
+    background-color: #f1f1f1;
   }
 `;
 export const Content = styled.div`

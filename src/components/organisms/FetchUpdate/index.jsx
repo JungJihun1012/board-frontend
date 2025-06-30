@@ -15,7 +15,6 @@ const FetchUpdate = () => {
   const { index } = useParams();
   const [formData, setFormData] = useState({});
   const naivgate = useNavigate();
-  const [isEditable, setIsEditable] = useState(false);
   useEffect(() => {
     safeAsync(
       () => get(`/board/select/${index}`),
@@ -28,9 +27,6 @@ const FetchUpdate = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleEditToggle = () => {
-    setIsEditable(true);
-  }
 
   const handleSaveValue = (e) => {
     e.preventDefault();
@@ -38,7 +34,7 @@ const FetchUpdate = () => {
       () => put(`/board/update/${index}`, formData),
       () => {
         alert("저장되었습니다.");
-        naivgate("/read");
+        naivgate("/");
       }
     );
   };
@@ -52,32 +48,25 @@ const FetchUpdate = () => {
           :
           <FormContainer>
             <FormTitle></FormTitle>
-            {
-              isEditable && <FormTitle>게시글 수정</FormTitle>
-            }
+              <FormTitle>게시글 수정</FormTitle>
             <form>
               <Input name="index" type="hidden" value={formData.index} />
               <Input
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                readOnly={!isEditable}
                 required
               />
               <TextArea
                 name="content"
                 value={formData.content}
                 onChange={handleChange}
-                readOnly={!isEditable}
                 required
               />
-              <UpdateButton onClick={handleEditToggle} type="button" style={{ display: !isEditable ? "flex" : "none", justifyContent: "center" }}>수정하기</UpdateButton>
-              {
-                isEditable && <UpdateButton type="submit" onClick={handleSaveValue}>저장하기</UpdateButton>
-              }
+                <UpdateButton type="submit" onClick={handleSaveValue}>저장하기</UpdateButton>
             </form>
             <Content>
-              <Button backgroundColor="cornflowerblue" color="#fff" to="/select">돌아가기</Button>
+              <Button backgroundColor="#ccc" color="#000" to="/select" onClick={() => naivgate(-1)}>돌아가기</Button>
             </Content>
           </FormContainer>
       }
